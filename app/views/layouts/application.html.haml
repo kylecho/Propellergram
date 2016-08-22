@@ -10,7 +10,7 @@
 
 %body
   = render 'layouts/navbar'
+  .container
   -flash.each do |name, msg|
-    .container
     = content_tag :div, msg, class: [:alert, alert_for(name)]
   = yield
