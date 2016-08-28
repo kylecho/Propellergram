@@ -12,15 +12,7 @@
           = post.user.user_name
         = post.caption
       - if post.comments
-        - post.comments.each do |comment|
-          .comment
-            .user-name
-              = comment.user.user_name
-            .comment-content
-              = comment.content
-            - if comment.user == current_user
-              = link_to post_comment_path(post, comment), method: :delete, data: { confirm: "Are you sure?" } do
-                %span(class="glyphicon glyphicon-remove delete-comment")
+        = render post.comments, post: post
     .comment-like-form.row
       .like-button.col-sm-1
         %span(class="glyphicon glyphicon-heart-empty")

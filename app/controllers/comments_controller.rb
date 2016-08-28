@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
 
     if @comment.save
       flash[:success] = "Comment created."
-      redirect_to :back
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       flash[:alert] = "Comment couldn't be created."
       render root_path
