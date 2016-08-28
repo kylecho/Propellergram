@@ -45,6 +45,7 @@ body {
 
 .navbar-default {
   background-color: #fff;
+  height: 54px;
   .navbar-nav li a {
     color: #125688;
   }
@@ -106,6 +107,7 @@ body {
   }
   .user-name {
     font-weight: 500;
+    margin-right: 0.3em;
     color: #125688;
     font-size: 15px;
   }
@@ -152,6 +154,15 @@ body {
 }
 
 /* ## Wrapper and styling for the new, edit & devise views ## */
+
+.form-wrapper {
+  width: 60px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 40px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
+}
 
 .edit-links {
   margin-top: 20px;
