@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       respond_to do |format|
+        create_notification @post, @comment
         format.html { redirect_to root_path }
         format.js
       end
@@ -37,6 +38,15 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def create_notification(post, comment)
+    return if post.user.id == current_user.id
+    Notification.create(user_id: post.user.id,
+                        notified_by_id: current_user.id,
+                        post_id: post.id,
+                        identifier: comment.id,
+                        notice_type: 'comment')
+  end
 
   def comment_params
     params.require(:comment).permit(:content)
