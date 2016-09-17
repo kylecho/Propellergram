@@ -15,6 +15,7 @@ gem 'paperclip', '~> 5.1.0'
 gem 'simple_form', '~> 3.2.1'
 gem 'devise', '~> 4.2.0'
 gem 'kaminari', '~> 0.17.0'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
