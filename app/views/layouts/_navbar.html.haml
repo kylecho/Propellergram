@@ -1,5 +1,5 @@
 %nav.navbar.navbar-default
-  .container-fluid.navbar-container
+  .navbar-container
     .navbar-header
       %button.navbar-toggle.collapsed{"data-target" => "#bs-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle Navigation
@@ -10,6 +10,8 @@
     .collapse.navbar-collapse#bs-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          %li
+            = render 'notifications/notification_dropdown'
           %li
             = link_to "New Post", new_post_path
           %li

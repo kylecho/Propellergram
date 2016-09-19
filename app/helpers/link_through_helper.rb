@@ -1,0 +1,2 @@
+module LinkThroughHelper
+end

@@ -1,0 +1,2 @@
+class LinkThroughController < ApplicationController
+end
