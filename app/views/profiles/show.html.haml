@@ -11,15 +11,24 @@
           - if @user == current_user
             = link_to 'Edit Profile', edit_profile_path(@user.user_name), class: 'btn edit-button'
           - else
-            = link_to 'Following', unfollow_user_path,
-                                   remote: true,
-                                   class: 'btn unfollow-button',
-                                   id: 'unfollow-button',
-                                   method: :post
+            - if current_user_is_following(current_user.id, @user.id)
+              = link_to 'Following', unfollow_user_path,
+                                     class: 'btn unfollow-button',
+                                     id: 'unfollow-button',
+                                     method: :post,
+                                     remote: true
+            - else
+              = link_to 'Follow', follow_user_path,
+                                  remote: true,
+                                  class: 'btn follow-button',
+                                  id: 'follow-button',
+                                  method: :post,
+                                  remote: true
       %p.profile-bio
         = @user.bio
       .user-statistics
         %p
           = pluralize @user.posts.count, 'post'
-          -@posts.each do |post|
-            = render 'posts/post', post: post
+
+-@posts.each do |post|
+  = render 'posts/post', post: post

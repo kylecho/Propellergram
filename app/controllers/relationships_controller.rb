@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+
   def follow_user
     @user = User.find_by! user_name: params[:user_name]
     if current_user.follow @user.id
@@ -14,7 +15,7 @@ class RelationshipsController < ApplicationController
     if current_user.unfollow @user.id
       respond_to do |format|
         format.html { redirect_to root_path }
-        fotmat.js
+        format.js
       end
     end
   end

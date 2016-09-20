@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'relationships/follow_user'
 
-  get 'relationships/unfollow_user'
-
+  get 'browse', to: 'posts#browse', as: :browse_posts
   get 'profiles/show'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
